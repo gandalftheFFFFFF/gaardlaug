@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for p in post %}
+        <h1>
+            {{ p.title }}
+        </h1>
+        <h3>
+            {{ p.date|date:"M d Y" }}
+        </h3>
+        <p>
+            {{ p.text }}
+        </p>
+        {% if docs %}
+            <p>
+                <Dokument>
+                    <er> </er>
+                </Dokument>:</p>
+            <ul>
+            {% for doc in docs %}
+                <li>
+                    <a href="{{ doc.doc.url }}">{{ doc.name }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% if images %}
+            <p>Billede(r):</p>
+            {% for img in images %}
+                <a href="{{ img.img.url }}"><img src="{{ img.img.url }}" /></a>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

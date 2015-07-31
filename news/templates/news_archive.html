@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if archive %}
+        <table>
+        {% for year, posts in archive.items %}
+            <tr><td><h2>{{ year }}</h2></td><td></td></tr>
+            {% for post in posts %}
+                <tr>
+                    <td>
+                        {{ post.date|date:"M d" }}
+                    </td>
+                    <td>
+                        <a href="{% url 'specific_post' post.slug %}">{{ post.title }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+        </table>
+    {% else %}
+        <p>
+            No posts...
+        </p>
+    {% endif %}
+{% endblock %}
