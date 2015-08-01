@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<h3>
+    <a href="{% url 'archive' %}">
+        Nyhedsarkiv
+    </a>
+</h3>
     {% for p in post %}
         <h1>
             {{ p.title }}
@@ -11,10 +16,7 @@
             {{ p.text }}
         </p>
         {% if docs %}
-            <p>
-                <Dokument>
-                    <er> </er>
-                </Dokument>:</p>
+            <p>Dokument(er):</p>
             <ul>
             {% for doc in docs %}
                 <li>

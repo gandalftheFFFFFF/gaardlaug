@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if archive %}
+    <h1>
+        Nyhedsarkiv
+    </h1>
         <table>
         {% for year, posts in archive.items %}
             <tr><td><h2>{{ year }}</h2></td><td></td></tr>
@@ -18,7 +21,7 @@
         </table>
     {% else %}
         <p>
-            No posts...
+            Ingen nyheder.
         </p>
     {% endif %}
 {% endblock %}

@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if post %}
+        <h3>
+            <a href="{% url 'archive' %}">
+                Nyhedsarkiv
+            </a>
+        </h3>
+        <h2>
+            Seneste nyhed:
+        </h2>
         <p>
             {{ post.title }}
         <p/>
