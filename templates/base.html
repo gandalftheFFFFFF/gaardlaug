@@ -1,13 +1,73 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
+{% load staticfiles %}
 <head>
+    {% load staticfiles %}
     <meta charset="UTF-8">
     <title>Gaardlauget Christianshavn</title>
+
+
+    <LINK href="{% static 'freestyle.css' %}" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<a href="{% url 'archive' %}"><p>News archive</p></a>
-{% block content %}
-    <p>Default content. Overwrite this!</p>
-{% endblock %}
+<div id="main_frame">
+    <div id="inner_frame">
+
+        <div id="header">
+            gaardlauget christianshavn
+        </div>
+
+        <div id="menu_container">
+
+            <div class="menu_item">
+                <a href="/">
+                    Forside
+                </a>
+            </div>
+            <div class="menu_item">
+                <a href="{% url 'news' %}">
+                    Nyheder
+                </a>
+            </div>
+            <div class="menu_item">
+                <a href="{% url 'documents' %}">
+                    Dokumenter
+                </a>
+            </div>
+            <div class="menu_item">
+                <a href="{% url 'board' %}">
+                    Bestyrelse
+                </a>
+            </div>
+            <div class="menu_item">
+                <a href="{% url 'affald' %}">
+                    Affald
+                </a>
+            </div>
+            <div class="menu_item">
+                <a href="{% url 'kontakt' %}">
+                    Kontakt
+                </a>
+            </div>
+
+
+            <span class="buffer"></span>
+        </div>
+        <hr id="rule"/>
+        <div id="main_container">
+            {% block content %}
+            <h1>Overskrift</h1>
+
+            <p>Paragraf der fortækker ngoet</p>
+            {% endblock %}
+        </div>
+
+    </div>
+</div>
+
 </body>
 </html>

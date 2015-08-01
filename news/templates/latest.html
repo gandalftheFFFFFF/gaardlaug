@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>
+    Velkommen
+</h1>
+<p>
+    Til hjemmesiden for gaardlauget på christianshavn. Benyt menuen ovenfor for at finde
+    dokumenter, andre nyheder, og oplysninger om den nuværende bestyrelse eller sågar affald.
+</p>
+    {% if post %}
+<h2>
+    Seneste nyt:
+</h2>
+        <h3>
+            {{ post.title }}
+        </h3>
+        <p>
+            {{ post.text }}
+        </p>
+        {% if docs %}
+            <p>Dokument(er):</p>
+            <ul>
+            {% for doc in docs %}
+                <li>
+                    <a href="{{ doc.doc.url }}">{{ doc.name }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% if images %}
+            <p>Billede(r):</p>
+            {% for img in images %}
+                <a href="{{ img.img.url }}"><img src="{{ img.img.url }}" /></a>
+            {% endfor %}
+        {% endif %}
+    {% else %}
+
+    {% endif %}
+{% endblock %}

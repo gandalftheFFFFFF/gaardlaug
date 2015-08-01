@@ -17,14 +17,20 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
-
+from news.views import latest
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    url(r'^$', include('news.urls')),
+    url(r'^$', latest, name='latest'),
     url(r'^news/', include('news.urls')),
+    url(r'^board/', include('board.urls')),
+    url(r'^documents/', include('file_uploader.urls')),
+    url(r'^affald/$', TemplateView.as_view(template_name='affald.html'), name='affald'),
+    url(r'^kontakt/$', TemplateView.as_view(template_name='kontakt.html'), name='kontakt'),
     url(r'^admin/', include(admin.site.urls)),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    #urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

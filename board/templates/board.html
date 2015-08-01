@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if members %}
+<h1>
+    Bestyrelsen:
+</h1>
+<ul>
+    {% for m in members %}
+        <li>
+            {{ m }} {% if m.role %} ({{ m.role }}){% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+<h2>
+    Ejendomme:
+</h2>
+<ul>
+    {% for m in mats %}
+        <li>
+            {{ m }}
+        </li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>
+    Der gik noget galt... kontakt venligst webmasteren på email: <a href="mailto:niels@nscp.dk">niels@nscp.dk</a>
+</p>
+{% endif %}
+
+{% endblock %}

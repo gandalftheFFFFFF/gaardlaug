@@ -81,3 +81,30 @@ def archive(request):
     }
 
     return render(request, template, context)
+
+
+def latest(request):
+    template = 'latest.html'
+    try:
+        post = Post.objects.filter(published=True).order_by('-date')[0]
+    except Post.DoesNotExist:
+        post = None
+
+    try:
+        docs = Document.objects.filter(post=post)
+    except Document.DoesNotExist:
+        docs = None
+
+    try:
+        images = Image.objects.filter(post=post)
+    except Document.DoesNotExist:
+        images = None
+
+
+    context = {
+        'post':post,
+        'docs': docs,
+        'images': images,
+    }
+
+    return render(request, template, context)
