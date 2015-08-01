@@ -17,7 +17,6 @@ class PostAdmin(admin.ModelAdmin):
     fields = ['title',
               'text',
               'date',
-              'published',
               'slug',
               ]
     prepopulated_fields = {

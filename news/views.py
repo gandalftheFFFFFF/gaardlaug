@@ -61,8 +61,8 @@ def archive(request):
     template = 'news_archive.html'
 
     try:
-        posts = Post.objects.filter(published=True)
-    except Post.DoesNotExist:
+        posts = Post.objects.all()
+    except Post.D   oesNotExist:
         posts = None
 
     if posts:

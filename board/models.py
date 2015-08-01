@@ -27,7 +27,7 @@ class Matrikel(models.Model):
         ordering = ['-name',]
 
     def __unicode__(self):
-        return ' '.join([self.first_name, self.last_name,])
+        return self.name
 
     def __str__(self):
         return self.name

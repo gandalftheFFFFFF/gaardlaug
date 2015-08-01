@@ -144,6 +144,16 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = '/var/www/gaardlaug/static'
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+STATICFILES_DIRS = (
+       os.path.join(BASE_DIR, 'static'),
+       )
+
+
 # Import local settings in development
 try:
     from .local_settings import *
