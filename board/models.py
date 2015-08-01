@@ -13,6 +13,9 @@ class BoardMember(models.Model):
     class Meta:
         ordering = ['-first_name', '-last_name',]
 
+    def __unicode__(self):
+        return ' '.join([self.first_name, self.last_name,])
+
     def __str__(self):
         return ' '.join([self.first_name, self.last_name])
 
@@ -22,6 +25,9 @@ class Matrikel(models.Model):
 
     class Meta:
         ordering = ['-name',]
+
+    def __unicode__(self):
+        return ' '.join([self.first_name, self.last_name,])
 
     def __str__(self):
         return self.name

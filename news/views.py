@@ -7,7 +7,7 @@ def news(request):
     template = 'news.html'
 
     try:
-        post = Post.objects.filter(published=True).order_by('-date')[0]
+        post = Post.objects.latest('date')
     except Post.DoesNotExist:
         post = None
 
@@ -20,7 +20,6 @@ def news(request):
         images = Image.objects.filter(post=post)
     except Document.DoesNotExist:
         images = None
-
 
     context = {
         'post':post,
@@ -48,7 +47,6 @@ def specific_post(request, post_slug):
         images = Image.objects.filter(post=post)
     except Document.DoesNotExist:
         images = None
-
 
     context = {
         'post':post,
@@ -86,7 +84,7 @@ def archive(request):
 def latest(request):
     template = 'latest.html'
     try:
-        post = Post.objects.filter(published=True).order_by('-date')[0]
+        post = Post.objects.latest('date')
     except Post.DoesNotExist:
         post = None
 

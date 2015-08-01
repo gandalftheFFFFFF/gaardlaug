@@ -5,11 +5,13 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     date = models.DateField()
-    published = models.BooleanField(default=True)
     slug = models.SlugField()
 
     class Meta:
         ordering = ['-date',]
+
+    def __unicode__(self):
+        return self.title
 
     def __str__(self):
         return self.title
