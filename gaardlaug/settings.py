@@ -55,10 +55,12 @@ SECRET_KEY = get_secret('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
+    'gaardlauget-christianshavn.dk',
+    '.gaarlauget-christianshavn.dk',
+    'gaarlauget-christianshavn.dk.',
+    'www.gaardlauget-christianshavn.dk'
     '127.0.0.1',
     '46.101.237.155',
-    'www.gaardlauget-christianshavn.dk',
-    'gaardlauget-christianshavn.dk,'
 ]
 
 

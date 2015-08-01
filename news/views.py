@@ -62,7 +62,7 @@ def archive(request):
 
     try:
         posts = Post.objects.all()
-    except Post.D   oesNotExist:
+    except Post.DoesNotExist:
         posts = None
 
     if posts:
