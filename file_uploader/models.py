@@ -14,7 +14,7 @@ class Document(models.Model):
     category = models.CharField(max_length=200, choices=CATEGORY_CHOICES)
     date = models.DateField()
     doc = models.FileField(upload_to=get_upload_path)
-    post = models.ForeignKey(Post, blank=True)
+    post = models.ForeignKey(Post, blank=True, null=True)
 
     class Meta:
         ordering = ['-date',]
