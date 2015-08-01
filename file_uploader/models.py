@@ -19,5 +19,8 @@ class Document(models.Model):
     class Meta:
         ordering = ['-date',]
 
+    def __unicode__(self):
+        return self.name
+
     def __str__(self):
         return self.name
