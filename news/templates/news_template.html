@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block news_header %}
+
+{% endblock %}
+{% block latest_news %}
+
+<p>
+    {{ post.title }}, {{ post.date|date:"d.m.Y" }}
+<p/>
+<p>
+    {{ post.text }}
+</p>
+{% if docs %}
+    <p>Dokument(er):</p>
+    <ul>
+        {% for doc in docs %}
+        <li>
+            <a href="{{ doc.doc.url }}">{{ doc.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% if images %}
+    <p>Billede(r):</p>
+    {% for img in images %}
+        <a href="{{ img.img.url }}"><img src="{{ img.img.url }}" class="thumbnail"/></a>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
+{% endblock %}

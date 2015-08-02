@@ -3,9 +3,7 @@ from .models import Post, Image
 from file_uploader.models import Document
 
 # Create your views here.
-def news(request):
-    template = 'news.html'
-
+def get_latest_post():
     try:
         post = Post.objects.latest('date')
     except Post.DoesNotExist:
@@ -20,6 +18,14 @@ def news(request):
         images = Image.objects.filter(post=post)
     except Document.DoesNotExist:
         images = None
+
+    return post, docs, images
+
+
+def news(request):
+    template = 'news.html'
+
+    post, docs, images = get_latest_post()
 
     context = {
         'post':post,
@@ -83,21 +89,8 @@ def archive(request):
 
 def latest(request):
     template = 'latest.html'
-    try:
-        post = Post.objects.latest('date')
-    except Post.DoesNotExist:
-        post = None
 
-    try:
-        docs = Document.objects.filter(post=post)
-    except Document.DoesNotExist:
-        docs = None
-
-    try:
-        images = Image.objects.filter(post=post)
-    except Document.DoesNotExist:
-        images = None
-
+    post, docs, images = get_latest_post()
 
     context = {
         'post':post,

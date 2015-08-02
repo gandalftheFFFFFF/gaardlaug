@@ -11,7 +11,7 @@ class BoardMember(models.Model):
     role = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
-        ordering = ['-first_name', '-last_name',]
+        ordering = ['first_name', 'last_name',]
 
     def __unicode__(self):
         return ' '.join([self.first_name, self.last_name,])

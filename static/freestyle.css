@@ -75,5 +75,10 @@ p {
     line-height: 150%;
 }
 
+.thumbnail {
+  border: 1px solid;
+  width: 5vw;
+  height: auto;
+}
 
 
