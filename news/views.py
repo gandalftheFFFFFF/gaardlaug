@@ -71,17 +71,15 @@ def archive(request):
     except Post.DoesNotExist:
         posts = None
 
+    # List to store all dicts in
+    arcs = []
+
     if posts:
-        archive = {}
         for post in posts:
-            year = post.date.year
-            if year in archive:
-                archive[year].append(post)
-            else:
-                archive[year] = [post, ]
+            arcs.append({'post': post, 'year': post.date.year, 'date': post.date})
 
     context = {
-        'archive':archive,
+        'arcs': arcs,
     }
 
     return render(request, template, context)

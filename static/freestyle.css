@@ -76,9 +76,9 @@ p {
 }
 
 .thumbnail {
-  border: 1px solid;
-  width: 5vw;
+  border: 1px solid black;
+  width: 49%;
+  max-height: 500px;
   height: auto;
 }
-
 

@@ -56,8 +56,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'gaardlauget-christianshavn.dk',
-    '.gaarlauget-christianshavn.dk',
-    'gaarlauget-christianshavn.dk.',
+    '.gaardlauget-christianshavn.dk',
+    'gaardlauget-christianshavn.dk.',
     'www.gaardlauget-christianshavn.dk'
     '127.0.0.1',
     '46.101.237.155',
