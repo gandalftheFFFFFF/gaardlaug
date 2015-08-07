@@ -40,7 +40,7 @@ def specific_post(request, post_slug):
     template = 'specific_post.html'
 
     try:
-        post = Post.objects.filter(slug=post_slug)
+        post = Post.objects.get(slug=post_slug)
     except Post.DoesNotExist:
         post = None
 
