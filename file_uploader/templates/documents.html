@@ -17,7 +17,6 @@
 </p>
 {% else %}
 
-<h1>
     {% if archive %}
         {% regroup archive by date|date:"Y" as year_list %}
         {% for year in year_list %}
@@ -31,8 +30,7 @@
     {% else %}
         <p>No archive?</p>
     {% endif %}
-</h1>
-<!--
+
     {% if docs %}
         <h2>
             {% if category %}
@@ -53,7 +51,7 @@
             Der gik noget galt... kontakt venligst webmasteren på email: <a href="mailto:niels@nscp.dk">niels@nscp.dk</a>
         </p>
     {% endif %}
-   -->
+
 {% endif %}
 
 {% endblock %}
