@@ -18,7 +18,12 @@ def documents(request, category=None):
         except Document.DoesNotExist:
             docs = None
 
+    # docs were had, time to split!
+
+    archive = docs
+
     context = {
+        'archive': archive,
         'docs': docs,
         'error': error,
         'category': category,

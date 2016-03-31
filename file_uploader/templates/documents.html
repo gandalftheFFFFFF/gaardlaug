@@ -5,13 +5,10 @@
     Kategorier:
 </h2>
 <p>
-    <a href="{% url 'category' "regnskab" %}">Regnskab & budget</a>
-</p>
-<p>
-    <a href="{% url 'category' "referat" %}">Referater</a>
-</p>
-<p>
-    <a href="{% url 'category' "andet" %}">Andet</a>
+    <a href="{% url 'category' "regnskab" %}">Regnskab & budget</a> /
+    <a href="{% url 'category' "referat" %}">Referater</a> /
+    <a href="{% url 'category' "andet" %}">Andet</a> /
+    <a href="{% url 'documents' %}">Alle</a>
 </p>
 
 {% if error %}
@@ -20,6 +17,20 @@
 </p>
 {% else %}
 
+<h1>
+    {% if archive %}
+        {% regroup archive by date|date:"Y" as year_list %}
+        {% for year in year_list %}
+            <h3>    {{ year.grouper }}</h3>
+            <ul>
+            {% for item in year.list %}
+                <li><a href="{{ item.doc.url }}">{{ item }}</a></li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    {% endif %}
+</h1>
+<!--
     {% if docs %}
         <h2>
             {% if category %}
@@ -40,6 +51,7 @@
             Der gik noget galt... kontakt venligst webmasteren på email: <a href="mailto:niels@nscp.dk">niels@nscp.dk</a>
         </p>
     {% endif %}
+   -->
 {% endif %}
 
 {% endblock %}
