@@ -20,7 +20,7 @@
     {% if archive %}
         {% regroup archive by date|date:"Y" as year_list %}
         {% for year in year_list %}
-            <h3>    {{ year.grouper }}</h3>
+            <h3>{{ year.grouper }}</h3>
             <ul>
             {% for item in year.list %}
                 <li><a href="{{ item.doc.url }}">{{ item }}</a></li>
