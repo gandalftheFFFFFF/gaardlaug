@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Document
 
-# Create your views here.
+
 def documents(request, category=None):
     template = 'documents.html'
     error = None
