@@ -1,4 +1,8 @@
 secrets.json
 local_settings.py
 media/*
+andet/
+referat/
+regnskab/
+*.pyc
 TODO

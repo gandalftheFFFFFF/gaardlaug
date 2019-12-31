@@ -5,9 +5,9 @@
     Kategorier:
 </h2>
 <p>
-    <a href="{% url 'category' "regnskab" %}">Regnskab & budget</a> /
-    <a href="{% url 'category' "referat" %}">Referater</a> /
-    <a href="{% url 'category' "andet" %}">Andet</a> /
+    <a href="{% url 'category' "regnskab" %}">Regnskab & budget</a> -
+    <a href="{% url 'category' "referat" %}">Referater</a> -
+    <a href="{% url 'category' "andet" %}">Andet</a> -
     <a href="{% url 'documents' %}">Alle</a>
 </p>
 
@@ -29,27 +29,6 @@
         {% endfor %}
     {% else %}
         <p>No archive?</p>
-    {% endif %}
-
-    {% if docs %}
-        <h2>
-            {% if category %}
-            Dokumenter: {{ category }}
-            {% else %}
-            Senest uploadede dokumenter:
-            {% endif %}
-        </h2>
-        <ul>
-            {% for doc in docs %}
-                <li>
-                    <a href="{{ doc.doc.url }}">{{ doc }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>
-            Der gik noget galt... kontakt venligst webmasteren på email: <a href="mailto:niels@nscp.dk">niels@nscp.dk</a>
-        </p>
     {% endif %}
 
 {% endif %}

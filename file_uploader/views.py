@@ -14,7 +14,7 @@ def documents(request, category=None):
             error = 'Der er ingen dokumenter i denne kategori.'
     else:
         try:
-            docs = Document.objects.all()[0:3]
+            docs = Document.objects.all()
         except Document.DoesNotExist:
             docs = None
 
