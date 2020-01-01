@@ -6,3 +6,5 @@ referat/
 regnskab/
 *.pyc
 TODO
+venv/
+.idea/

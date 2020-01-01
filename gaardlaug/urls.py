@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^documents/', include('file_uploader.urls')),
     url(r'^affald/$', TemplateView.as_view(template_name='affald.html'), name='affald'),
     url(r'^kontakt/$', TemplateView.as_view(template_name='kontakt.html'), name='kontakt'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:

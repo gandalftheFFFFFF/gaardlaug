@@ -61,6 +61,7 @@ ALLOWED_HOSTS = [
     'www.gaardlauget-christianshavn.dk'
     '127.0.0.1',
     '46.101.237.155',
+    'localhost',
 ]
 
 
@@ -78,12 +79,12 @@ INSTALLED_APPS = (
     'board',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    #'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -128,7 +129,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'da-DK'
+LANGUAGE_CODE = 'da'
 
 TIME_ZONE = 'Europe/Copenhagen'
 
