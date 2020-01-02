@@ -9,5 +9,12 @@ jobs:
           fingerprints:
             - "0b:be:84:dd:f5:28:f1:16:d5:93:61:79:bc:14:18:00"
       - run:
+          command: |
+            cat >> ~/.ssh/config << EOF
+            VerifyHostKeyDNS yes
+            StrictHostKeyChecking no
+            EOF
+
+      - run:
           command: ssh django@165.22.93.244 'echo lol > file.txt'
 
