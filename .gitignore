@@ -1,6 +1,6 @@
 secrets.json
 local_settings.py
-media/*
+media/
 andet/
 referat/
 regnskab/
