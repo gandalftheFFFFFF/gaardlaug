@@ -16,5 +16,7 @@ jobs:
             EOF
 
       - run:
-          command: ssh django@165.22.93.244 'echo lol > file.txt'
+          command: ssh django@165.22.93.244 './deploy.sh'
+      - run:
+          command: ssh django@165.22.93.244 'systemctl restart gunicorn'
 
